@@ -1,0 +1,30 @@
+[
+{"type":"line","id":"div_cd","from":[1580,1550],"to":[1580,2130],"strokeColor":"#cbd5e1","strokeStyle":"dashed","strokeWidth":1},
+
+{"type":"text","id":"d_title","x":1640,"y":1550,"text":"D.  Access + refresh token lifecycle","fontSize":28,"strokeColor":"#1e40af"},
+{"type":"text","id":"d_sub","x":1640,"y":1595,"text":"Short-lived access token, long-lived rotating refresh token.","fontSize":16,"strokeColor":"#64748b"},
+
+{"type":"rectangle","id":"d_n1","x":1640,"y":1660,"width":330,"height":100,"strokeColor":"#1e3a5f","backgroundColor":"#60a5fa"},
+{"type":"text","id":"d_n1_t","text":"1  App calls the API\nAuthorization: Bearer eyJ...","fontSize":15,"strokeColor":"#1e3a5f","box":[1640,1660,330,100]},
+{"type":"rectangle","id":"d_n2","x":2420,"y":1660,"width":330,"height":100,"strokeColor":"#047857","backgroundColor":"#a7f3d0"},
+{"type":"text","id":"d_n2_t","text":"2  API verifies the JWT\nsignature · exp · aud · scope","fontSize":15,"strokeColor":"#374151","box":[2420,1660,330,100]},
+{"type":"rectangle","id":"d_n3","x":2420,"y":1900,"width":330,"height":100,"strokeColor":"#b91c1c","backgroundColor":"#fecaca"},
+{"type":"text","id":"d_n3_t","text":"3  401 token_expired\n(after ~15 minutes)","fontSize":15,"strokeColor":"#374151","box":[2420,1900,330,100]},
+{"type":"rectangle","id":"d_n4","x":1640,"y":1900,"width":330,"height":100,"strokeColor":"#b45309","backgroundColor":"#fef3c7"},
+{"type":"text","id":"d_n4_t","text":"4  POST /auth/refresh\n{ refresh_token }","fontSize":15,"strokeColor":"#374151","box":[1640,1900,330,100]},
+
+{"type":"arrow","id":"d_a12","from":[1970,1710],"to":[2420,1710],"strokeColor":"#1e3a5f"},
+{"type":"text","id":"d_a12_l","x":2050,"y":1682,"text":"valid token","fontSize":14,"strokeColor":"#64748b"},
+{"type":"arrow","id":"d_a23","from":[2585,1760],"to":[2585,1900],"strokeColor":"#b91c1c"},
+{"type":"text","id":"d_a23_l","x":2600,"y":1820,"text":"exp passed","fontSize":14,"strokeColor":"#64748b"},
+{"type":"arrow","id":"d_a34","from":[2420,1950],"to":[1970,1950],"strokeColor":"#b91c1c"},
+{"type":"text","id":"d_a34_l","x":2100,"y":1922,"text":"client catches 401","fontSize":14,"strokeColor":"#64748b"},
+{"type":"arrow","id":"d_a41","from":[1805,1900],"to":[1805,1760],"strokeColor":"#b45309"},
+{"type":"text","id":"d_a41_l","x":1720,"y":1820,"text":"new pair","fontSize":14,"strokeColor":"#64748b"},
+
+{"type":"text","id":"d_mid_h","x":2050,"y":1795,"text":"Refresh-token rotation","fontSize":18,"strokeColor":"#b45309"},
+{"type":"text","id":"d_mid_t","x":2050,"y":1828,"text":"opaque string, valid ~30 days\nstored hashed in DB, single use\nreuse detected = revoke the family","fontSize":14,"strokeColor":"#374151"},
+
+{"type":"rectangle","id":"d_ev","x":1640,"y":2040,"width":1110,"height":86,"strokeColor":"#1e293b","backgroundColor":"#1e293b"},
+{"type":"text","id":"d_ev_t","x":1654,"y":2052,"text":"POST /auth/refresh   { \"refresh_token\": \"rt_8f3a...\" }\n-> 200 { \"access_token\": \"eyJ...\", \"refresh_token\": \"rt_c91d... (NEW)\", \"expires_in\": 900 }","fontSize":14,"strokeColor":"#22c55e"}
+]

@@ -1,0 +1,44 @@
+[
+{"type":"text","id":"title","x":100,"y":30,"text":"Authentication Architecture","fontSize":40,"strokeColor":"#1e40af"},
+{"type":"text","id":"subtitle","x":100,"y":88,"text":"OAuth 2.0 + OpenID Connect (Google & Apple Sign-In)  ->  your own JWT access & refresh tokens","fontSize":18,"strokeColor":"#64748b"},
+
+{"type":"ellipse","id":"sum_user","x":100,"y":150,"width":200,"height":110,"strokeColor":"#c2410c","backgroundColor":"#fed7aa"},
+{"type":"text","id":"sum_user_t","text":"User","fontSize":18,"strokeColor":"#374151","box":[100,150,200,110]},
+{"type":"rectangle","id":"sum_app","x":410,"y":150,"width":260,"height":110,"strokeColor":"#1e3a5f","backgroundColor":"#60a5fa"},
+{"type":"text","id":"sum_app_t","text":"Client App\n(Web / iOS / Android)","fontSize":18,"strokeColor":"#1e3a5f","box":[410,150,260,110]},
+{"type":"rectangle","id":"sum_idp","x":790,"y":150,"width":280,"height":110,"strokeColor":"#6d28d9","backgroundColor":"#ddd6fe"},
+{"type":"text","id":"sum_idp_t","text":"Google / Apple\n(Identity Provider)","fontSize":18,"strokeColor":"#374151","box":[790,150,280,110]},
+{"type":"rectangle","id":"sum_be","x":1190,"y":150,"width":300,"height":110,"strokeColor":"#1e3a5f","backgroundColor":"#3b82f6"},
+{"type":"text","id":"sum_be_t","text":"Your Auth Backend\n(issues your own JWTs)","fontSize":18,"strokeColor":"#ffffff","box":[1190,150,300,110]},
+{"type":"rectangle","id":"sum_tok","x":1610,"y":150,"width":260,"height":110,"strokeColor":"#b45309","backgroundColor":"#fef3c7"},
+{"type":"text","id":"sum_tok_t","text":"JWT tokens\naccess + refresh","fontSize":18,"strokeColor":"#374151","box":[1610,150,260,110]},
+{"type":"rectangle","id":"sum_api","x":1990,"y":150,"width":260,"height":110,"strokeColor":"#047857","backgroundColor":"#a7f3d0"},
+{"type":"text","id":"sum_api_t","text":"Protected API\n(Resource Server)","fontSize":18,"strokeColor":"#374151","box":[1990,150,260,110]},
+
+{"type":"arrow","id":"sum_a1","from":[300,205],"to":[410,205],"strokeColor":"#c2410c"},
+{"type":"arrow","id":"sum_a2","from":[670,205],"to":[790,205],"strokeColor":"#1e3a5f"},
+{"type":"arrow","id":"sum_a3","from":[1070,205],"to":[1190,205],"strokeColor":"#6d28d9"},
+{"type":"arrow","id":"sum_a4","from":[1490,205],"to":[1610,205],"strokeColor":"#1e3a5f"},
+{"type":"arrow","id":"sum_a5","from":[1870,205],"to":[1990,205],"strokeColor":"#b45309"},
+{"type":"text","id":"sum_l1","x":318,"y":176,"text":"1 tap","fontSize":14,"strokeColor":"#64748b"},
+{"type":"text","id":"sum_l2","x":688,"y":176,"text":"2 redirect","fontSize":14,"strokeColor":"#64748b"},
+{"type":"text","id":"sum_l3","x":1100,"y":176,"text":"3 code","fontSize":14,"strokeColor":"#64748b"},
+{"type":"text","id":"sum_l4","x":1520,"y":176,"text":"4 mint","fontSize":14,"strokeColor":"#64748b"},
+{"type":"text","id":"sum_l5","x":1892,"y":176,"text":"5 Bearer","fontSize":14,"strokeColor":"#64748b"},
+
+{"type":"text","id":"sum_cap","x":100,"y":290,"text":"Zoom in below:  A  OIDC login flow   ·   B  Google vs Apple   ·   C  JWT anatomy   ·   D  token lifecycle   ·   E  security checklist","fontSize":16,"strokeColor":"#64748b"},
+
+{"type":"text","id":"leg_t","x":2380,"y":140,"text":"Legend","fontSize":16,"strokeColor":"#1e40af"},
+{"type":"ellipse","id":"leg_d1","x":2380,"y":172,"width":14,"height":14,"strokeColor":"#c2410c","backgroundColor":"#fed7aa"},
+{"type":"text","id":"leg_1","x":2404,"y":170,"text":"User","fontSize":14,"strokeColor":"#374151"},
+{"type":"ellipse","id":"leg_d2","x":2380,"y":196,"width":14,"height":14,"strokeColor":"#1e3a5f","backgroundColor":"#60a5fa"},
+{"type":"text","id":"leg_2","x":2404,"y":194,"text":"Client app","fontSize":14,"strokeColor":"#374151"},
+{"type":"ellipse","id":"leg_d3","x":2380,"y":220,"width":14,"height":14,"strokeColor":"#6d28d9","backgroundColor":"#ddd6fe"},
+{"type":"text","id":"leg_3","x":2404,"y":218,"text":"External identity provider","fontSize":14,"strokeColor":"#374151"},
+{"type":"ellipse","id":"leg_d4","x":2380,"y":244,"width":14,"height":14,"strokeColor":"#1e3a5f","backgroundColor":"#3b82f6"},
+{"type":"text","id":"leg_4","x":2404,"y":242,"text":"Your backend","fontSize":14,"strokeColor":"#374151"},
+{"type":"ellipse","id":"leg_d5","x":2380,"y":268,"width":14,"height":14,"strokeColor":"#047857","backgroundColor":"#a7f3d0"},
+{"type":"text","id":"leg_5","x":2404,"y":266,"text":"Protected API","fontSize":14,"strokeColor":"#374151"},
+
+{"type":"line","id":"div1","from":[100,335],"to":[2950,335],"strokeColor":"#cbd5e1","strokeStyle":"dashed","strokeWidth":1}
+]

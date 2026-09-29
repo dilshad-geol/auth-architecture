@@ -1,0 +1,53 @@
+[
+{"type":"text","id":"a_title","x":100,"y":360,"text":"A.  Sign in with Google / Apple  —  OIDC Authorization Code + PKCE","fontSize":28,"strokeColor":"#1e40af"},
+{"type":"text","id":"a_sub","x":100,"y":405,"text":"The user proves who they are to Google/Apple; your backend verifies that proof and issues its own tokens.","fontSize":16,"strokeColor":"#64748b"},
+
+{"type":"line","id":"ll_user","from":[260,520],"to":[260,1450],"strokeColor":"#cbd5e1","strokeStyle":"dashed","strokeWidth":1},
+{"type":"line","id":"ll_app","from":[760,520],"to":[760,1450],"strokeColor":"#cbd5e1","strokeStyle":"dashed","strokeWidth":1},
+{"type":"line","id":"ll_be","from":[1260,520],"to":[1260,1450],"strokeColor":"#cbd5e1","strokeStyle":"dashed","strokeWidth":1},
+{"type":"line","id":"ll_idp","from":[1760,520],"to":[1760,1450],"strokeColor":"#cbd5e1","strokeStyle":"dashed","strokeWidth":1},
+
+{"type":"ellipse","id":"h_user","x":150,"y":450,"width":220,"height":70,"strokeColor":"#c2410c","backgroundColor":"#fed7aa"},
+{"type":"text","id":"h_user_t","text":"User\n(browser / phone)","fontSize":16,"strokeColor":"#374151","box":[150,450,220,70]},
+{"type":"rectangle","id":"h_app","x":650,"y":450,"width":220,"height":70,"strokeColor":"#1e3a5f","backgroundColor":"#60a5fa"},
+{"type":"text","id":"h_app_t","text":"Client App\n(SPA / mobile)","fontSize":16,"strokeColor":"#1e3a5f","box":[650,450,220,70]},
+{"type":"rectangle","id":"h_be","x":1150,"y":450,"width":220,"height":70,"strokeColor":"#1e3a5f","backgroundColor":"#3b82f6"},
+{"type":"text","id":"h_be_t","text":"Your Backend\n(auth service)","fontSize":16,"strokeColor":"#ffffff","box":[1150,450,220,70]},
+{"type":"rectangle","id":"h_idp","x":1650,"y":450,"width":220,"height":70,"strokeColor":"#6d28d9","backgroundColor":"#ddd6fe"},
+{"type":"text","id":"h_idp_t","text":"Google / Apple\n(OIDC provider)","fontSize":16,"strokeColor":"#374151","box":[1650,450,220,70]},
+
+{"type":"arrow","id":"st1","from":[260,570],"to":[760,570],"strokeColor":"#c2410c"},
+{"type":"text","id":"st1_l","x":272,"y":545,"text":"1  Tap \"Continue with Google / Apple\"","fontSize":14,"strokeColor":"#374151"},
+
+{"type":"arrow","id":"st2","from":[760,650],"to":[1760,650],"strokeColor":"#1e3a5f","strokeWidth":3},
+{"type":"text","id":"st2_l","x":772,"y":606,"text":"2  Redirect to /authorize  (Authorization Code + PKCE)\n    client_id · redirect_uri · scope=openid email profile\n    state · nonce · code_challenge=S256(code_verifier)","fontSize":14,"strokeColor":"#374151"},
+
+{"type":"arrow","id":"st3","from":[1760,760],"to":[260,760],"strokeColor":"#6d28d9","strokeStyle":"dashed"},
+{"type":"text","id":"st3_l","x":300,"y":735,"text":"3  Provider shows its own login + consent (password, Face ID, 2FA)","fontSize":14,"strokeColor":"#374151"},
+
+{"type":"arrow","id":"st4","from":[1760,850],"to":[760,850],"strokeColor":"#6d28d9"},
+{"type":"text","id":"st4_l","x":780,"y":806,"text":"4  302 redirect_uri?code=AUTH_CODE&state=xyz\n    (mobile: universal link · Apple: POST form_post)","fontSize":14,"strokeColor":"#374151"},
+
+{"type":"arrow","id":"st5","from":[760,950],"to":[1260,950],"strokeColor":"#1e3a5f"},
+{"type":"text","id":"st5_l","x":772,"y":906,"text":"5  POST /auth/google\n    { code, code_verifier }","fontSize":14,"strokeColor":"#374151"},
+
+{"type":"arrow","id":"st6","from":[1260,1030],"to":[1760,1030],"strokeColor":"#1e3a5f"},
+{"type":"text","id":"st6_l","x":1272,"y":986,"text":"6  POST /token  grant_type=\n    authorization_code + code_verifier\n    + client_secret","fontSize":14,"strokeColor":"#374151"},
+
+{"type":"arrow","id":"st7","from":[1760,1110],"to":[1260,1110],"strokeColor":"#6d28d9","strokeStyle":"dashed"},
+{"type":"text","id":"st7_l","x":1272,"y":1086,"text":"7  { id_token, access_token, refresh_token }","fontSize":14,"strokeColor":"#374151"},
+
+{"type":"rectangle","id":"st8_box","x":960,"y":1150,"width":600,"height":70,"strokeColor":"#b45309","backgroundColor":"#fef3c7"},
+{"type":"text","id":"st8_t","text":"8  Verify id_token  (never trust the client)\nsignature via provider JWKS · iss · aud · exp · nonce","fontSize":14,"strokeColor":"#374151","box":[960,1150,600,70]},
+
+{"type":"rectangle","id":"st9_box","x":960,"y":1240,"width":600,"height":50,"strokeColor":"#1e3a5f","backgroundColor":"#93c5fd"},
+{"type":"text","id":"st9_t","text":"9  Find or create user by (provider, sub)  ·  link email","fontSize":14,"strokeColor":"#374151","box":[960,1240,600,50]},
+
+{"type":"arrow","id":"st10","from":[1260,1350],"to":[760,1350],"strokeColor":"#1e3a5f","strokeWidth":3},
+{"type":"text","id":"st10_l","x":772,"y":1306,"text":"10  { access_token: JWT (15 min),\n      refresh_token: opaque (30 days) }","fontSize":14,"strokeColor":"#374151"},
+
+{"type":"arrow","id":"st11","from":[760,1420],"to":[260,1420],"strokeColor":"#1e3a5f"},
+{"type":"text","id":"st11_l","x":272,"y":1395,"text":"11  Signed in — API calls carry a Bearer token","fontSize":14,"strokeColor":"#374151"},
+
+{"type":"line","id":"div_ab","from":[1950,360],"to":[1950,1460],"strokeColor":"#cbd5e1","strokeStyle":"dashed","strokeWidth":1}
+]

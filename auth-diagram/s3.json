@@ -1,0 +1,25 @@
+[
+{"type":"text","id":"b_title","x":2000,"y":360,"text":"B.  Google vs Apple — what differs","fontSize":28,"strokeColor":"#1e40af"},
+{"type":"text","id":"b_sub","x":2000,"y":405,"text":"Same OIDC flow, different details in the id_token and the secret.","fontSize":16,"strokeColor":"#64748b"},
+
+{"type":"rectangle","id":"g_head","x":2000,"y":450,"width":440,"height":56,"strokeColor":"#6d28d9","backgroundColor":"#ddd6fe"},
+{"type":"text","id":"g_head_t","text":"Google","fontSize":20,"strokeColor":"#374151","box":[2000,450,440,56]},
+{"type":"rectangle","id":"ap_head","x":2510,"y":450,"width":440,"height":56,"strokeColor":"#6d28d9","backgroundColor":"#ddd6fe"},
+{"type":"text","id":"ap_head_t","text":"Apple","fontSize":20,"strokeColor":"#374151","box":[2510,450,440,56]},
+
+{"type":"rectangle","id":"g_json","x":2000,"y":526,"width":440,"height":290,"strokeColor":"#1e293b","backgroundColor":"#1e293b"},
+{"type":"text","id":"g_json_t","x":2014,"y":540,"text":"// decoded id_token payload\n{\n  \"iss\": \"https://accounts.google.com\",\n  \"aud\": \"<your-client-id>\",\n  \"sub\": \"110169484474386276334\",\n  \"email\": \"ada@gmail.com\",\n  \"email_verified\": true,\n  \"name\": \"Ada Lovelace\",\n  \"picture\": \"https://lh3...\",\n  \"nonce\": \"n-0S6_WzA2Mj\",\n  \"iat\": 1767225600,\n  \"exp\": 1767229200\n}","fontSize":14,"strokeColor":"#22c55e"},
+
+{"type":"rectangle","id":"ap_json","x":2510,"y":526,"width":440,"height":290,"strokeColor":"#1e293b","backgroundColor":"#1e293b"},
+{"type":"text","id":"ap_json_t","x":2524,"y":540,"text":"// decoded id_token payload\n{\n  \"iss\": \"https://appleid.apple.com\",\n  \"aud\": \"com.example.app\",\n  \"sub\": \"001234.ab12cd...0987\",\n  \"email\": \"x7k2@privaterelay.appleid.com\",\n  \"is_private_email\": true,\n  \"email_verified\": true,\n  \"nonce_supported\": true,\n  \"auth_time\": 1767225590,\n  \"exp\": 1767229200\n}","fontSize":14,"strokeColor":"#22c55e"},
+
+{"type":"line","id":"cmp_line_g","from":[2000,846],"to":[2000,1076],"strokeColor":"#6d28d9","strokeWidth":2},
+{"type":"text","id":"cmp_g","x":2016,"y":846,"text":"Keys (JWKS):  googleapis.com/oauth2/v3/certs\nAlgorithm:    RS256\nclient_secret: a static string\nName + email: sent on every login\nScopes:       openid email profile\nCallback:     GET (query string)","fontSize":14,"strokeColor":"#374151"},
+{"type":"line","id":"cmp_line_a","from":[2510,846],"to":[2510,1076],"strokeColor":"#6d28d9","strokeWidth":2},
+{"type":"text","id":"cmp_a","x":2526,"y":846,"text":"Keys (JWKS):  appleid.apple.com/auth/keys\nAlgorithm:    RS256\nclient_secret: ES256 JWT you sign (.p8 key)\nName + email: ONLY on first login!\nScopes:       name email\nCallback:     POST (form_post)","fontSize":14,"strokeColor":"#374151"},
+{"type":"text","id":"cmp_a_warn","x":2526,"y":1000,"text":"Store name/email immediately — Apple never\nsends them again. Email may be a private relay.","fontSize":14,"strokeColor":"#b91c1c"},
+
+{"type":"rectangle","id":"both_box","x":2000,"y":1110,"width":950,"height":340,"strokeColor":"#047857","backgroundColor":"#a7f3d0"},
+{"type":"text","id":"both_h","x":2030,"y":1130,"text":"Rules that apply to BOTH providers","fontSize":20,"strokeColor":"#047857"},
+{"type":"text","id":"both_t","x":2030,"y":1180,"text":"1.  Verify the id_token on your server — signature, iss, aud, exp, nonce.\n2.  Match state (CSRF) and nonce (replay) from step 2.\n3.  Identify users by (iss, sub) — never by email alone.\n4.  Use PKCE even with a backend; mandatory for SPA / mobile.\n5.  Exchange the code server-side so client_secret stays secret.\n6.  Then mint YOUR OWN short-lived JWTs — don't reuse the provider's\n     access_token as your session.","fontSize":16,"strokeColor":"#374151"}
+]
